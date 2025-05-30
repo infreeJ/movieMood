@@ -1,12 +1,12 @@
 
 
 function NewContent () {
-
+    
     const NewContentName = [
         {
             img : "../public/Imgs/newContent/브링허백.jpg",
             topic : "AD",
-            title : "브링허백",
+            title : "브링 허 백",
             desc : "6월 6일 CGV 대개봉"
         },
 
@@ -27,6 +27,7 @@ function NewContent () {
 
     return(
         <>
+        <div className="NewContent-Wrapper">
         {NewContentName.map((content, index) => (
             <div className="NewContent" key={index} style={{backgroundImage: `URL(${content.img})`}}>
             <div className="NewContent-text">
@@ -39,6 +40,7 @@ function NewContent () {
             </div>
         </div>
         ))}
+        </div>
         
         </>
     )

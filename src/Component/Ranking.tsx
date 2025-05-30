@@ -39,6 +39,7 @@ function Ranking() {
 
     return (
         <>
+        <div className="ranking-wrapper">
         {rankingContent.map((content, index) => (
             <div className="ranking" key={index}>
                 <div className="ranking-img" style={{backgroundImage: `URL(${content.img})`}}>
@@ -50,7 +51,7 @@ function Ranking() {
                 </div>
             </div>
         ))}
-
+        </div>
         </>
     )
 }

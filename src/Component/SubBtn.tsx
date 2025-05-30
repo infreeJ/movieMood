@@ -6,11 +6,13 @@ function SubBtn () {
     
     return (
         <>
+        <div className="subBtn-wrapper">
         {subBtnName.map((content, index) => (
         <div className="subBtn" key={index}>
             <span className="subBtn-magazine">{content}</span>
         </div>
         ))}
+        </div>
         </>
     )
 }
