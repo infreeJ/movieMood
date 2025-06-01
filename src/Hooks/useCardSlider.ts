@@ -3,23 +3,22 @@
 function useCardSlider(
     cardNum: number,
     setCardNum: React.Dispatch<React.SetStateAction<number>>,
-    contentLength: number
+    pageNum: number
 ) {
-    function cardSlideUp(i: number): void {
-        if (cardNum < contentLength - i) {
-            setCardNum(cardNum + 1)
+    function cardSlideUp(i: number, j: number): void {
+        if (cardNum < pageNum * j) {
+            setCardNum(cardNum + i)
         }
     }
 
-    function cardSlideDown() {
+    function cardSlideDown(i: number): void {
         if (cardNum > 0) {
-            setCardNum(cardNum - 1)
+            setCardNum(cardNum - i)
         }
     }
     return {
         cardSlideUp, cardSlideDown
     }
 }
-
 
 export default useCardSlider

@@ -18,11 +18,15 @@ import Overlay from './Component/Overlay'
 
 // 훅
 import LockScroll from './Hooks/LockScroll'
+import JoinTab from './Component/JoinTab'
 
 
 function App() {
   // 로그인 모달 창 조작
   const [loginModal, setLoginModal] = useState(false);
+  
+  // 회원가입 모달 창 조작
+  const [joinModal, setJoinModal] = useState(false);
 
   // 모달창 스크롤 방지
   LockScroll(loginModal);
@@ -30,9 +34,14 @@ function App() {
 
   return (
     <>
-    {loginModal && <LoginTab/>}
-    {loginModal && <Overlay setLoginModal={setLoginModal}/>}
-    <NavBar setLoginModal={setLoginModal}/>
+    <div>
+      {loginModal && <Overlay setLoginModal={setLoginModal}/>}
+      {loginModal && <LoginTab/>}
+      {joinModal && <Overlay setLoginModal={setJoinModal}/>}
+      {joinModal && <JoinTab/>}
+    </div>
+    
+    <NavBar setLoginModal={setLoginModal} setJoinModal={setJoinModal}/>
 
     <Routes>
       <Route path='/' element={<HomePage/>}></Route>

@@ -2,9 +2,10 @@ import { useNavigate } from "react-router-dom"
 
 interface Props {
     setLoginModal: React.Dispatch<React.SetStateAction<boolean>>;
+    setJoinModal: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-function NavBar({ setLoginModal }: Props) {
+function NavBar({ setLoginModal, setJoinModal }: Props) {
 
     const nav = useNavigate();
 
@@ -32,7 +33,7 @@ function NavBar({ setLoginModal }: Props) {
                         </div>
                         <div className="nav-login">
                             <button className="nav-login-logbtn" onClick={() => { setLoginModal(true) }}>로그인</button>
-                            <button className="nav-login-membtn">회원가입</button>
+                            <button className="nav-login-membtn" onClick={() => { setJoinModal(true) }}>회원가입</button>
                         </div>
                     </div>
                 </div>

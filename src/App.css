@@ -140,7 +140,6 @@ body{
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    /* display: flex; */
 }
 
 .NewContent-text{
@@ -193,11 +192,13 @@ body{
 .NewContent-btn-left{
     position: absolute;
     left: 7%;
+    z-index: 20;
 }
 
 .NewContent-btn-right{
     position: absolute;
     right: 7%;
+    z-index: 20;
 }
 
 
@@ -301,11 +302,12 @@ body{
 .loginTab{
     width: 370px;
     height: 620px;
-    z-index: 50;
     background-color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: fixed;
+    z-index: 50;
 }
 
 .loginTab-input{
@@ -372,7 +374,7 @@ body{
     height: 100vh;
     background-color: black;
     opacity: 0.5;
-    position: absolute;
+    position: fixed;
     z-index: 40;
     top: 0;
 }

@@ -38,17 +38,18 @@ function NewContent() {
     const [cardNum, setCardNum] = useState(0)
     const threeContent = NewContentName.slice(cardNum, cardNum + 3);
 
-    const { cardSlideUp, cardSlideDown } = useCardSlider(cardNum, setCardNum, NewContentName.length);
+    const pageNum = Math.ceil(NewContentName.length / 3)
 
-
+    const { cardSlideUp, cardSlideDown } = useCardSlider(cardNum, setCardNum, pageNum);
 
 
 
     return (
         <>
             <div className="NewContent-Wrapper">
-                <button className="NewContent-btn-left" onClick={() => { cardSlideDown() }}>⬅</button>
-                <button className="NewContent-btn-right" onClick={() => { cardSlideUp(3) }}>➡</button>
+                <button className="NewContent-btn-left" onClick={() => { cardSlideDown(3) }}>⬅</button>
+                <button className="NewContent-btn-right" onClick={() => { cardSlideUp(3, 1) }}>➡</button>
+                
                 {threeContent.map((content, index) => (
                     <div className="NewContent" key={index} style={{ backgroundImage: `URL(${content.img})` }}>
                         <div className="NewContent-text">
