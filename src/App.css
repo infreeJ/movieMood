@@ -181,6 +181,24 @@ body{
     font-weight: 500;
 }
 
+.NewContent-btn-left, .NewContent-btn-right{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: none;
+    box-shadow: 1px 1px 8px rgb(121, 121, 121);
+    cursor: pointer;
+}
+
+.NewContent-btn-left{
+    position: absolute;
+    left: 7%;
+}
+
+.NewContent-btn-right{
+    position: absolute;
+    right: 7%;
+}
 
 
 /* HomePage-subBtn */
