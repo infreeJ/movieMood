@@ -31,27 +31,45 @@ function NewContent() {
             topic: "인기 아티클",
             title: "영화의 탄생부터 히치콕까지",
             desc: "교과서에 나오는 고전 영화 훑어보기"
-        }
+        },
+        {
+            img: "../public/Imgs/newContent/씨너스.jpg",
+            topic: "미국 파묘라고요?",
+            title: "씨너스: 죄인들",
+            desc: "드라마 ● 미국"
+        },
+        {
+            img: "../public/Imgs/newContent/쇼생크탈출.jpg",
+            topic: "내 인생 최고의 영화",
+            title: "쇼생크탈출",
+            desc: "평균★4.4"
+        },
     ]
 
 
-    const [cardNum, setCardNum] = useState(0)
-    const threeContent = NewContentName.slice(cardNum, cardNum + 3);
+    // const [cardNum, setCardNum] = useState(0)
+    // const threeContent = NewContentName.slice(cardNum, cardNum + 3);
 
-    const pageNum = Math.ceil(NewContentName.length / 3)
+    // const pageNum = Math.ceil(NewContentName.length / 3)
 
-    const { cardSlideUp, cardSlideDown } = useCardSlider(cardNum, setCardNum, pageNum);
+    // const { cardSlideUp, cardSlideDown } = useCardSlider(cardNum, setCardNum, pageNum);
 
+
+    const [slideWidth, setSlideWidth] = useState(0);
+    const [pageNum, setPageNum] = useState(0)
+    const {cardMoveLeft, cardMoveRight} = useCardSlider(slideWidth, setSlideWidth, pageNum, setPageNum)
+    const maxPage = Math.floor(NewContentName.length / 3) - 1
 
 
     return (
         <>
             <div className="NewContent-Wrapper">
-                <button className="NewContent-btn-left" onClick={() => { cardSlideDown(3) }}>⬅</button>
-                <button className="NewContent-btn-right" onClick={() => { cardSlideUp(3, 1) }}>➡</button>
                 
-                {threeContent.map((content, index) => (
-                    <div className="NewContent" key={index} style={{ backgroundImage: `URL(${content.img})` }}>
+                <button disabled={pageNum === 0} className="NewContent-btn-left" onClick={ () => {cardMoveLeft()}}>⬅</button>
+                <button disabled={pageNum == maxPage} className="NewContent-btn-right" onClick={ () => {cardMoveRight(maxPage)}}>➡</button>
+                <div className="NewContent-inner" style={{transform: `translateX(${slideWidth}%)`}}>
+                {NewContentName.map((content, index) => (
+                    <div className="NewContent" key={index} style={{ backgroundImage: `URL(${content.img})`}}>
                         <div className="NewContent-text">
                             <span className="NewContent-text-topic">{content.topic}</span>
                             <div className="NewContent-text-wrapper">
@@ -61,6 +79,7 @@ function NewContent() {
                         </div>
                     </div>
                 ))}
+                </div>
             </div>
 
         </>

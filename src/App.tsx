@@ -29,7 +29,7 @@ function App() {
   const [joinModal, setJoinModal] = useState(false);
 
   // 모달창 스크롤 방지
-  LockScroll(loginModal);
+  LockScroll(loginModal, joinModal);
 
 
   return (

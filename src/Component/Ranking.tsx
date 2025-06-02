@@ -1,5 +1,7 @@
-import { useState } from "react"
+// import { useState } from "react"
 import useCardSlider from "../Hooks/useCardSlider";
+
+import { useState } from "react"
 
 function Ranking() {
 
@@ -89,42 +91,65 @@ function Ranking() {
             score: "평균 ★ 3.9"
         },
         {
-            img: "",
+            img: "../public/Imgs/ranking/굿보이.jpg",
             num: "15",
-            title: "",
-            score: ""
+            title: "굿보이",
+            score: "평균 ★ 3.2"
         }
     ]
 
 
-    const [cardNum, setCardNum] = useState(0);
-    const fiveContent = rankingContent.slice(cardNum, cardNum + 5)
+    // const [cardNum, setCardNum] = useState(0);
+    // const fiveContent = rankingContent.slice(cardNum, cardNum + 5)
 
-    const pageNum = Math.ceil(rankingContent.length / 5);
+    // const pageNum = Math.ceil(rankingContent.length / 5);
 
-    const { cardSlideUp, cardSlideDown } = useCardSlider(cardNum, setCardNum, pageNum)
+    // const { cardSlideUp, cardSlideDown } = useCardSlider(cardNum, setCardNum, pageNum)
 
 
+    // const [isLeftClicked, setIsLeftClicked] = useState(false)
+    // const [isRightClicked, setIsRightClicked] = useState(false)
+
+    const [slideWidth, setSlideWidth] = useState(0);
+    const [pageNum, setPageNum] = useState(0)
+    const {cardMoveLeft, cardMoveRight} = useCardSlider(slideWidth, setSlideWidth, pageNum, setPageNum)
+    const maxPage = Math.floor(rankingContent.length / 5) - 1
+
+
+    // function cardMoveLeft() {
+    //     if (pageNum > 0) {
+    //         setSlideWidth(slideWidth + 100)
+    //         setPageNum(pageNum - 1)
+    //     }
+    // }
+
+
+    // function cardMoveRight(i: number) {
+    //     if (pageNum < i) {
+    //         setSlideWidth(slideWidth - 100)
+    //         setPageNum(pageNum + 1)
+    //     }
+    // }
 
 
     return (
         <>
             <div className="ranking-wrapper">
-                <button className="NewContent-btn-left" onClick={() => { cardSlideDown(5) }}>⬅</button>
-                <button className="NewContent-btn-right" onClick={() => { cardSlideUp(5, 3) }}>➡</button>
-
-                {fiveContent.map((content, index) => (
-                    <div className="ranking" key={index}>
-                        <div className="ranking-img" style={{ backgroundImage: `URL(${content.img})` }}>
-                            <span className="ranking-img-num">{content.num}</span>
+                <button disabled={pageNum === 0} className="NewContent-btn-left" onClick={() => { cardMoveLeft() }}>⬅</button>
+                <button disabled={pageNum == maxPage} className="NewContent-btn-right" onClick={() => { cardMoveRight(maxPage) }}>➡</button>
+                <div className="ranking-inner" style={{ transform: `translateX(${slideWidth}%)` }}>
+                    {rankingContent.map((content, index) => (
+                        <div className="ranking" key={index}>
+                            <div className="ranking-img" style={{ backgroundImage: `URL(${content.img})` }}>
+                                <span className="ranking-img-num">{content.num}</span>
+                            </div>
+                            <div className="ranking-text">
+                                <div className="ranking-text-title">{content.title}</div>
+                                <div className="ranking-text-score">{content.score}</div>
+                            </div>
                         </div>
-                        <div className="ranking-text">
-                            <div className="ranking-text-title">{content.title}</div>
-                            <div className="ranking-text-score">{content.score}</div>
-                        </div>
-                    </div>
-                ))}</div>
-
+                    ))}</div>
+            </div>
         </>
     )
 }

@@ -16,11 +16,11 @@ function LoginTab () {
             <span className="loginTab-forget">비밀번호를 잊어버리셨나요?</span>
             <p className="loginTab-join">계정이 없으신가요? <span className="loginTab-forget">회원가입</span></p>
 
-            <div className="orLine-wrapper">
+            {/* <div className="orLine-wrapper">
                 <div className="orLine-line"></div>
                 <span className="orLine-or">OR</span>
                 <div className="orLine-line"></div>
-            </div>
+            </div> */}
 
             <div>
                 <div></div>
