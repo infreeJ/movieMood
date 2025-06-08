@@ -99,37 +99,11 @@ function Ranking() {
     ]
 
 
-    // const [cardNum, setCardNum] = useState(0);
-    // const fiveContent = rankingContent.slice(cardNum, cardNum + 5)
-
-    // const pageNum = Math.ceil(rankingContent.length / 5);
-
-    // const { cardSlideUp, cardSlideDown } = useCardSlider(cardNum, setCardNum, pageNum)
-
-
-    // const [isLeftClicked, setIsLeftClicked] = useState(false)
-    // const [isRightClicked, setIsRightClicked] = useState(false)
-
     const [slideWidth, setSlideWidth] = useState(0);
     const [pageNum, setPageNum] = useState(0)
     const {cardMoveLeft, cardMoveRight} = useCardSlider(slideWidth, setSlideWidth, pageNum, setPageNum)
     const maxPage = Math.floor(rankingContent.length / 5) - 1
 
-
-    // function cardMoveLeft() {
-    //     if (pageNum > 0) {
-    //         setSlideWidth(slideWidth + 100)
-    //         setPageNum(pageNum - 1)
-    //     }
-    // }
-
-
-    // function cardMoveRight(i: number) {
-    //     if (pageNum < i) {
-    //         setSlideWidth(slideWidth - 100)
-    //         setPageNum(pageNum + 1)
-    //     }
-    // }
 
 
     return (

@@ -13,6 +13,7 @@ import NavBar from './Component/NavBar'
 
 // 페이지
 import HomePage from './Pages/HomePage'
+import MovieProfilePage from './Pages/MovieProfilePage'
 import { useState } from 'react'
 import Overlay from './Component/Overlay'
 
@@ -32,6 +33,10 @@ function App() {
   LockScroll(loginModal, joinModal);
 
 
+
+  
+  
+
   return (
     <>
     <div>
@@ -46,6 +51,7 @@ function App() {
     <Routes>
       <Route path='/' element={<HomePage/>}></Route>
       <Route path='/movie' element={<MoviePage/>}></Route>
+      <Route path='/브링허백' element={<MovieProfilePage/>}></Route>
     </Routes>
     
     </>

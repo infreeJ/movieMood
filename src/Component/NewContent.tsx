@@ -1,29 +1,36 @@
 import { useState } from "react";
 import useCardSlider from "../Hooks/useCardSlider";
 
+import MovieProfilePage from "../Pages/MovieProfilePage";
+import { useNavigate } from "react-router-dom"
 
 function NewContent() {
+
+    const nav = useNavigate()
 
     const NewContentName = [
         {
             img: "../public/Imgs/newContent/브링허백.jpg",
             topic: "AD",
             title: "브링 허 백",
-            desc: "6월 6일 CGV 대개봉"
+            desc: "6월 6일 CGV 대개봉",
+            route: "/브링허백"
         },
 
         {
             img: "../public/Imgs/newContent/미션임파서블.jpg",
             topic: "인기 아티클",
             title: "매번 세계를 구한 '에단 헌트'의 미션 연대기",
-            desc: "한눈에 보는 <미션 임파서블> 시리즈의 역대급 작전 리포트"
+            desc: "한눈에 보는 <미션 임파서블> 시리즈의 역대급 작전 리포트",
+            route: "/미션임파서블"
         },
 
         {
             img: "../public/Imgs/newContent/미지의서울.jpg",
             topic: "지금 가장 핫한 작품",
             title: "미지의 서울",
-            desc: "평균★4.2 ● tvN ● 로맨스"
+            desc: "평균★4.2 · tvN · 로맨스",
+            route: "미지의서울"
         },
 
         {
@@ -36,7 +43,7 @@ function NewContent() {
             img: "../public/Imgs/newContent/씨너스.jpg",
             topic: "미국 파묘라고요?",
             title: "씨너스: 죄인들",
-            desc: "드라마 ● 미국"
+            desc: "드라마 · 미국"
         },
         {
             img: "../public/Imgs/newContent/쇼생크탈출.jpg",
@@ -69,7 +76,7 @@ function NewContent() {
                 <button disabled={pageNum == maxPage} className="NewContent-btn-right" onClick={ () => {cardMoveRight(maxPage)}}>➡</button>
                 <div className="NewContent-inner" style={{transform: `translateX(${slideWidth}%)`}}>
                 {NewContentName.map((content, index) => (
-                    <div className="NewContent" key={index} style={{ backgroundImage: `URL(${content.img})`}}>
+                    <div className="NewContent" onClick={ () => { nav(`${content.route}`)}} key={index} style={{ backgroundImage: `URL(${content.img})`}}>
                         <div className="NewContent-text">
                             <span className="NewContent-text-topic">{content.topic}</span>
                             <div className="NewContent-text-wrapper">
