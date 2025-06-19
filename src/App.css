@@ -455,6 +455,7 @@ button:disabled {
     height: 600px;
     background-repeat: no-repeat;
     background-position: 0 -150px;
+    background-size: cover;
 }
 
 .mainImg-textWrapper{
@@ -475,22 +476,36 @@ button:disabled {
 .movieDetail{
     width: 100%;
     display: flex;
+    gap: 1%;
 }
 
 .movieDetail-img{
-    width: 35%;
-    height: 400px;
+    width: 320px;
+    height: 410px;
     background-repeat: no-repeat;
     background-size: contain;
+    background-position: center;
+    flex-shrink: 0;
 }
 
 .MovieDetail-overView-tab{
     display: flex;
-    width: 100%;
+    width: 900px;
     height: 100px;
-    justify-content: center;
+    /* height: 100px; */
+    /* justify-content: center; */
     align-items: center;
-    gap: 30%;
+    /* gap: 100px; */
+    margin-left: 50px;
+    justify-content: space-between;
+} 
+
+.MovieDetail-overView-tab-score{
+    width: 150px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .MovieDetail-overView-tab-btn{
@@ -500,6 +515,17 @@ button:disabled {
 .MovieDetail-overView-tab-btn-set{
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 100px;
+    padding-bottom: 10px;
+    
+}
+
+.MovieDetail-overView-tab-rating{
+    display: flex;
+    gap: 5px;
 }
 
 .MovieDetail-overView-text{
@@ -510,4 +536,47 @@ button:disabled {
 .MovieDetail-overView-text > *{
     font-size: 0.9rem;
     color: #525252;
+}
+
+.star-icon{
+    width: 30px;
+    height: 30px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.icon-img{
+    width: 30px;
+    height: 30px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    transition: 0.5s ease;
+    margin-bottom: 20px;
+}
+
+.icon-img:hover{
+    width: 40px;
+    height: 40px;
+}
+
+.icon-img-plus{
+    width: 60px;
+    height: 60px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    transition: 0.5s ease;
+    margin-bottom: 20px;
+}
+
+.icon-img-plus:hover{
+    width: 75px;
+    height: 75px;
+}
+
+.icon-text{
+    position: absolute;
+    bottom: 10px;
+    color: #585858;
+    font-size: 0.8rem;
+    font-weight: 500;
 }

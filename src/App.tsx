@@ -51,7 +51,7 @@ function App() {
     <Routes>
       <Route path='/' element={<HomePage/>}></Route>
       <Route path='/movie' element={<MoviePage/>}></Route>
-      <Route path='/브링허백' element={<MovieProfilePage/>}></Route>
+      <Route path='/NewContent/:id' element={<MovieProfilePage/>}></Route>
     </Routes>
     
     </>
